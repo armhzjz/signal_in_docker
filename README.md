@@ -6,9 +6,9 @@
 
 This repository builds a container that runs Signal for desktop.
 
-In case you don't want to build it by yourself, you can get pull the container from [this dockerhub repository](https://hub.docker.com/repository/docker/eindemwort/sigindock), from your command line:
+In case you don't want to build it by yourself, you can get pull the container from [this dockerhub repository](https://hub.docker.com/repository/docker/armhzjz/signal-in-docker), from your command line:
 ```
-docker pull eindemwort/sigindock
+docker pull armhzjz/signal-in-docker
 ```
 
 ### Building and installing
