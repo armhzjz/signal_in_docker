@@ -2,5 +2,5 @@
 
 docker build --rm \
         --network=host \
-        -t armhzjz/signal-in-docker \
+        -t armhzjz/signal-in-docker:latest \
         .
