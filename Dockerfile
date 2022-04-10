@@ -12,8 +12,7 @@ ENV	DISPLAY :0
 
 RUN     set -x && \
         apt-get update && \
-        apt-get install -y \
-                curl \
+        apt-get install --assume-yes \
                 wget \
                 gnupg2 \
                 libx11-xcb-dev \
@@ -24,6 +23,7 @@ RUN     set -x && \
                 libgbm-dev \
                 gosu \
                 && \
+        apt-get clean && \
         rm -fr /var/lib/apt/lists/* && \
         :
 
@@ -36,7 +36,13 @@ RUN     set -x && \
         cat signal-desktop-keyring.gpg | tee -a /usr/share/keyrings/signal-desktop-keyring.gpg > /dev/null && \
         echo 'deb [arch=amd64 signed-by=/usr/share/keyrings/signal-desktop-keyring.gpg] https://updates.signal.org/desktop/apt xenial main' | \
                 tee -a /etc/apt/sources.list.d/signal-xenial.list && \
-        apt-get update -y && apt-get install -y signal-desktop
+        apt-get update && \
+        apt-get install --assume-yes \
+                signal-desktop \
+                && \
+        apt-get clean && \
+        rm -fr /var/lib/apt/lists/* && \
+        :
 
 # install tini version v0.19.0
 ENV 	TINI_VERSION v0.19.0
