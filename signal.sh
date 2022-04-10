@@ -4,5 +4,6 @@ docker run -d --rm --name signaldock \
 	--net=host \
 	-e UID=$(id -u) \
 	-e GID=$(id -g) \
-	-v ${HOME}/.Xauthority:/home/user/.Xauthority armhzjz/signaldock
-
+	-v ${HOME}/.Xauthority:/home/signaluser/.Xauthority \
+	--mount type=volume,src=signvol,dst=/home/signaluser/.config/Signal \
+	armhzjz/signaldock
